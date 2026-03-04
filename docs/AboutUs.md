@@ -23,6 +23,7 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 [[github](https://github.com/lang-jiaqi?tab=repositories)]
 
 * Role: Developer
+* Resiponsibility: Storage
 
 ### Chen Hongshan
 
