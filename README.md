@@ -3,6 +3,21 @@
 [![Made with Jekyll](https://img.shields.io/badge/Jekyll-3.9-blue?logo=jekyll&logoColor=white)](https://jekyllrb.com "Go to Jekyll homepage")
 ![Ui](docs/images/Ui.png)
 
+![banner](docs/images/CatPals_banner.png)
+
+![GitHub Created At](https://img.shields.io/github/created-at/lang-jiaqi/tp?color=...)
+![contributors](https://img.shields.io/badge/contributors-5-brightgreen)
+![license](https://img.shields.io/github/license/lang-jiaqi/tp.svg?color=bright-green)
+![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg)
+
+## Table of Contents
+
+- [Background](#background)
+- [Install](#install)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
+
 ## Background
 
 This project is a **brownfield** software engineering project developed by a team of five,
@@ -14,7 +29,7 @@ In the sample project, AB3 simulates an ongoing software project with an existin
 Building on this base, our team adapted the original contact-management application into a desktop app for NUS Cate Cafe CCA volunteers to manage information about stray cats on the NUS campus. The app is designed for users who prefer fast keyboard-based interaction, are comfortable with CLI-style workflows, and need an efficient way to identify cats and keep important status details up to date.
 <br>
 <br>
-It is intended for personal or small-team volunteer use, rather than as a veterinary medical system, shelter operations tool, or public registry.  
+It is intended for personal or small-team volunteer use, rather than as a veterinary medical system, shelter operations tool, or public registry.
 
 For the detailed documentation of this project, see the **[Cat Pals Website](https://ay2526s2-cs2103t-t16-3.github.io/tp/)**.
 
