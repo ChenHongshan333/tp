@@ -575,7 +575,6 @@ MVP - `* * * *`, High (must have) - `* * *`, Medium (nice to have) - `* *`, Low 
 3. User provides the file path
 4. CatPals validates the file path and attaches the image to the cat profile
 5. CatPals shows a success message confirming the attachment
-   
    Use case ends.
 
 **Extensions**
@@ -626,7 +625,6 @@ MVP - `* * * *`, High (must have) - `* * *`, Medium (nice to have) - `* *`, Low 
 * 4b. No cats match the specified traits.
     * 4b1. CatPals shows a message: "No cats found with the specified traits."
       Use case ends.
- 
 
 
 ## Non-Functional Requirements
