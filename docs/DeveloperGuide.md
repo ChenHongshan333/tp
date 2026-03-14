@@ -42,6 +42,8 @@ title: Developer Guide
 ## **Acknowledgements**
 
 * {list here sources of all reused/adapted ideas, code, documentation, and third-party libraries -- include links to the original source as well}
+* This project is based on the [AddressBook Level-3](https://se-education.org/addressbook-level3/) application.
+* Class names were renamed from AB3 defaults to CatPals-related names with the help of [Cursor](https://www.cursor.com/) to improve development efficiency(to help us focus on functional code development)
 
 ---
 
