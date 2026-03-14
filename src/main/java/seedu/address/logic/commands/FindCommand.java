@@ -62,4 +62,5 @@ public class FindCommand extends Command {
                 .add("predicate", predicate)
                 .toString();
     }
+
 }
