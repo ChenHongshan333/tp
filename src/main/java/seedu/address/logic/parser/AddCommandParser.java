@@ -1,23 +1,20 @@
 package seedu.address.logic.parser;
 
-import static seedu.address.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_ADDRESS;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_HEALTH;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_LOCATION;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_TRAIT;
 
-import java.util.Set;
+import java.util.List;
 import java.util.stream.Stream;
 
 import seedu.address.logic.commands.AddCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
-import seedu.address.model.person.Address;
-import seedu.address.model.person.Email;
+import seedu.address.model.person.Health;
+import seedu.address.model.person.Location;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
-import seedu.address.model.person.Phone;
-import seedu.address.model.tag.Tag;
+import seedu.address.model.person.Trait;
 
 /**
  * Parses input arguments and creates a new AddCommand object
@@ -31,22 +28,43 @@ public class AddCommandParser implements Parser<AddCommand> {
      */
     public AddCommand parse(String args) throws ParseException {
         ArgumentMultimap argMultimap =
-                ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_PHONE, PREFIX_EMAIL, PREFIX_ADDRESS, PREFIX_TAG);
+                ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_TRAIT, PREFIX_LOCATION, PREFIX_HEALTH);
 
-        if (!arePrefixesPresent(argMultimap, PREFIX_NAME, PREFIX_ADDRESS, PREFIX_PHONE, PREFIX_EMAIL)
-                || !argMultimap.getPreamble().isEmpty()) {
-            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddCommand.MESSAGE_USAGE));
+        // Check required fields are present first (before preamble check)
+        if (!arePrefixesPresent(argMultimap, PREFIX_NAME, PREFIX_LOCATION)) {
+            throw new ParseException(AddCommand.MESSAGE_MISSING_ATTRIBUTES);
         }
 
-        argMultimap.verifyNoDuplicatePrefixesFor(PREFIX_NAME, PREFIX_PHONE, PREFIX_EMAIL, PREFIX_ADDRESS);
+        // Trait must be present
+        if (!arePrefixesPresent(argMultimap, PREFIX_TRAIT)) {
+            throw new ParseException("Your Add command is incomplete. Please enter again.");
+        }
+
+        // Reject non-empty preamble (all required prefixes are present but extra text before them)
+        if (!argMultimap.getPreamble().isEmpty()) {
+            throw new ParseException(AddCommand.MESSAGE_INVALID_PARAMETERS);
+        }
+
+        // Enforce single name and single location (no duplicate prefixes)
+        argMultimap.verifyNoDuplicatePrefixesFor(PREFIX_NAME, PREFIX_LOCATION);
+
+        // Duplicate location detection: verifyNoDuplicatePrefixesFor above handles l/
+        // Duplicate health detection: health is optional, take last if duplicated (or restrict)
+        argMultimap.verifyNoDuplicatePrefixesFor(PREFIX_HEALTH);
+
         Name name = ParserUtil.parseName(argMultimap.getValue(PREFIX_NAME).get());
-        Phone phone = ParserUtil.parsePhone(argMultimap.getValue(PREFIX_PHONE).get());
-        Email email = ParserUtil.parseEmail(argMultimap.getValue(PREFIX_EMAIL).get());
-        Address address = ParserUtil.parseAddress(argMultimap.getValue(PREFIX_ADDRESS).get());
-        Set<Tag> tagList = ParserUtil.parseTags(argMultimap.getAllValues(PREFIX_TAG));
+        Location location = ParserUtil.parseLocation(argMultimap.getValue(PREFIX_LOCATION).get());
+        List<Trait> traits = ParserUtil.parseTraits(argMultimap.getAllValues(PREFIX_TRAIT));
 
-        Person person = new Person(name, phone, email, address, tagList);
+        // Health is optional; defaults to "Unknown"
+        Health health;
+        if (argMultimap.getValue(PREFIX_HEALTH).isPresent()) {
+            health = new Health(argMultimap.getValue(PREFIX_HEALTH).get().trim());
+        } else {
+            health = new Health(Health.DEFAULT_VALUE);
+        }
 
+        Person person = new Person(name, traits, location, health);
         return new AddCommand(person);
     }
 
