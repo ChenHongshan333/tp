@@ -67,7 +67,7 @@ Type a command in the command box and press **Enter** to execute it.
 ### Notes
 - Parameters in `UPPER_CASE` are supplied by the user (e.g. `n/NAME` → `n/Snowy`).
 - Items in `{curly braces}` are optional.
-- Items followed by `…` can be used multiple times or omitted entirely. 
+- Items followed by `…` can be used multiple times or omitted entirely.
 <br>e.g. `[t/TAG]…` can be used as `t/white`, `t/white t/small` etc.
 - Extraneous parameters for commands that do not take in parameters (such as `help`, `list`, `exit` and `clear`) will be ignored.
 <br>e.g. if the command specifies `help 123`, it will be interpreted as `help`.
