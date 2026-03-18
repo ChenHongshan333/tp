@@ -59,7 +59,7 @@ Type a command in the command box and press **Enter** to execute it.
 | **List** all contacts     | `list`                                                                               | `list`                                                  |
 | **Update** a contact      | `update INDEX(or NAME) n/NAME t/TRAIT [t/MORE_TRAITS]… l/LOCATION [h/HEALTH_STATUS]` | `update 1 n/Brown ` or `update Brown n/Bigguy t/Purple` |
 | **Find** contacts by name | `find KEYWORD [MORE_KEYWORDS]`                                                       | `find John`                                             |
-| **Delete** a contact      | `delete INDEX(or NAME)`                                                              | `delete 3`                                              |
+| **Delete** a contact      | `delete INDEX(or NAME)`                                                              | `delete 3` or `delete Brown`                            |
 | **Clear** all contacts    | `clear`                                                                              | `clear`                                                 |
 | **Help**                  | `help`                                                                               | `help`                                                  |
 | **Exit**                  | `exit`                                                                               | `exit`                                                  |
