@@ -1,17 +1,14 @@
+![banner](images/CatPals_banner.png)
 [![CI Status](https://github.com/AY2526S2-CS2103T-T16-3/tp/workflows/Java%20CI/badge.svg)](https://github.com/AY2526S2-CS2103T-T16-3/tp/actions)
 [![codecov](https://codecov.io/gh/se-edu/addressbook-level3/branch/master/graph/badge.svg)](https://codecov.io/gh/se-edu/addressbook-level3)
-
 ![Java](https://img.shields.io/badge/Java-17-informational)
 [![Made with Jekyll](https://img.shields.io/badge/Jekyll-3.9-blue?logo=jekyll&logoColor=white)](https://jekyllrb.com "Go to Jekyll homepage")
-
-![banner](images/CatPals_banner.png)
-
-![Ui](images/Ui.png)
-
 ![GitHub Created At](https://img.shields.io/github/created-at/lang-jiaqi/tp?color=...)
 ![contributors](https://img.shields.io/badge/contributors-5-brightgreen)
 ![license](https://img.shields.io/github/license/lang-jiaqi/tp.svg?color=bright-green)
 ![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg)
+
+![Ui](images/Ui.png)
 
 ## Table of Contents
 
@@ -68,10 +65,12 @@ Type a command in the command box and press **Enter** to execute it.
 | **Exit** | `exit` | `exit` |
 
 ### Notes
-- Parameters in `UPPER_CASE` are supplied by the user (e.g. `n/NAME` → `n/John Doe`).
-- Items in `[square brackets]` are optional.
+- Parameters in `UPPER_CASE` are supplied by the user (e.g. `n/NAME` → `n/Snowy`).
+- Items in `{curly braces}` are optional.
 - Items followed by `…` can be used multiple times or omitted entirely.
-- Parameters can be provided in any order.g
+  <br>e.g. `[t/TAG]…` can be used as `t/white`, `t/white t/small` etc.
+- Extraneous parameters for commands that do not take in parameters (such as `help`, `list`, `exit` and `clear`) will be ignored.
+  <br>e.g. if the command specifies `help 123`, it will be interpreted as `help`.
 
 ### Data Storage
 Contact data is saved automatically to `[JAR location]/data/addressbook.json` after every change — no manual saving required.

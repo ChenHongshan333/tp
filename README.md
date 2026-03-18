@@ -65,10 +65,12 @@ Type a command in the command box and press **Enter** to execute it.
 | **Exit** | `exit` | `exit` |
 
 ### Notes
-- Parameters in `UPPER_CASE` are supplied by the user (e.g. `n/NAME` → `n/John Doe`).
-- Items in `[square brackets]` are optional.
+- Parameters in `UPPER_CASE` are supplied by the user (e.g. `n/NAME` → `n/Snowy`).
+- Items in `{curly braces}` are optional.
 - Items followed by `…` can be used multiple times or omitted entirely.
-- Parameters can be provided in any order.g
+<br>e.g. `[t/TAG]…` can be used as `t/white`, `t/white t/small` etc.
+- Extraneous parameters for commands that do not take in parameters (such as `help`, `list`, `exit` and `clear`) will be ignored.
+<br>e.g. if the command specifies `help 123`, it will be interpreted as `help`.
 
 ### Data Storage
 Contact data is saved automatically to `[JAR location]/data/addressbook.json` after every change — no manual saving required.
