@@ -20,6 +20,7 @@ import seedu.address.logic.Logic;
 import seedu.address.logic.Messages;
 import seedu.address.logic.commands.Command;
 import seedu.address.logic.commands.CommandResult;
+import seedu.address.logic.commands.DeleteCommand;
 import seedu.address.logic.commands.UpdateCommand;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.logic.parser.exceptions.ParseException;
@@ -201,6 +202,17 @@ public class MainWindow extends UiPart<Stage> {
                 }
             }
 
+            // Show confirmation dialog for delete commands
+            if (command instanceof DeleteCommand) {
+                Optional<Cat> preview = logic.getDeletePreview(command);
+                if (preview.isPresent()) {
+                    boolean confirmed = showDeleteConfirmationDialog(preview.get());
+                    if (!confirmed) {
+                        return CommandResult.cancelled();
+                    }
+                }
+            }
+
             CommandResult commandResult = logic.executeCommand(command);
             logger.info("Result: " + commandResult.getFeedbackToUser());
             resultDisplay.setFeedbackToUser(commandResult.getFeedbackToUser());
@@ -234,6 +246,50 @@ public class MainWindow extends UiPart<Stage> {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.initOwner(primaryStage);
         alert.setTitle("Confirm Update");
+        alert.setHeaderText(null);
+        alert.setContentText(content);
+        alert.getDialogPane().getStylesheets().add("view/DarkTheme.css");
+
+        // Hide OK and Cancel buttons - user presses Enter/Esc instead
+        alert.setOnShown(event -> {
+            var okButton = alert.getDialogPane().lookupButton(ButtonType.OK);
+            var cancelButton = alert.getDialogPane().lookupButton(ButtonType.CANCEL);
+            if (okButton != null) {
+                okButton.setVisible(false);
+            }
+            if (cancelButton != null) {
+                cancelButton.setVisible(false);
+            }
+        });
+
+        // Handle Enter = confirm, Esc = cancel
+        alert.getDialogPane().getScene().addEventFilter(KeyEvent.KEY_PRESSED, e -> {
+            if (e.getCode() == KeyCode.ENTER) {
+                alert.setResult(ButtonType.OK);
+                e.consume();
+            } else if (e.getCode() == KeyCode.ESCAPE) {
+                alert.setResult(ButtonType.CANCEL);
+                e.consume();
+            }
+        });
+
+        Optional<ButtonType> result = alert.showAndWait();
+        return result.isPresent() && result.get() == ButtonType.OK;
+    }
+
+    /**
+     * Shows a confirmation dialog for delete commands.
+     * Enter confirms, Esc cancels. No buttons - user presses keys.
+     *
+     * @param catToDelete the cat entry that would be deleted
+     * @return true if the user confirmed, false if cancelled
+     */
+    private boolean showDeleteConfirmationDialog(Cat catToDelete) {
+        String content = DELETE_CONFIRMATION_HEADER + Messages.format(catToDelete) + "?"
+                + CONFIRMATION_HINT;
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.initOwner(primaryStage);
+        alert.setTitle("Confirm Delete");
         alert.setHeaderText(null);
         alert.setContentText(content);
         alert.getDialogPane().getStylesheets().add("view/DarkTheme.css");

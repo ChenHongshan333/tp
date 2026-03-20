@@ -50,6 +50,14 @@ public interface Logic {
     Optional<Cat> getUpdatePreview(Command command) throws CommandException;
 
     /**
+     * Returns a preview of the cat that would be deleted, if the given command is a DeleteCommand.
+     * @param command The parsed command.
+     * @return Optional containing the cat to be deleted, or empty if the command is not a DeleteCommand.
+     * @throws CommandException If an error occurs while getting the preview (e.g. invalid index).
+     */
+    Optional<Cat> getDeletePreview(Command command) throws CommandException;
+
+    /**
      * Returns the AddressBook.
      *
      * @see seedu.address.model.Model#getAddressBook()

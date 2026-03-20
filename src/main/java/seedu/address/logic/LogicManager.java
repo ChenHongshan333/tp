@@ -11,6 +11,7 @@ import seedu.address.commons.core.GuiSettings;
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.logic.commands.Command;
 import seedu.address.logic.commands.CommandResult;
+import seedu.address.logic.commands.DeleteCommand;
 import seedu.address.logic.commands.UpdateCommand;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.logic.parser.AddressBookParser;
@@ -78,6 +79,15 @@ public class LogicManager implements Logic {
         }
         UpdateCommand updateCommand = (UpdateCommand) command;
         return Optional.of(updateCommand.getEditedCatPreview(model));
+    }
+
+    @Override
+    public Optional<Cat> getDeletePreview(Command command) throws CommandException {
+        if (!(command instanceof DeleteCommand)) {
+            return Optional.empty();
+        }
+        DeleteCommand deleteCommand = (DeleteCommand) command;
+        return Optional.of(deleteCommand.getCatToDeletePreview(model));
     }
 
     @Override
