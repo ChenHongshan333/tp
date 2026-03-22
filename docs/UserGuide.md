@@ -2,21 +2,20 @@
 layout: page
 title: User Guide
 ---
-![banner](images/CatPals_banner.png)
-This project is a **brownfield** software engineering project developed by a team of five,
-based on [AddressBook Level 3 (AB3)](https://se-education.org/addressbook-level3/),
-a sample desktop application provided by CS2103T course team, AY2526 Sem2.
-In the sample project, AB3 simulates an ongoing software project with an existing object-oriented codebase, documentation, and architecture, making it a suitable foundation for extension rather than building a product from scratch.
-<br>
-<br>
-Building on this base, our team adapted the original contact-management application into a desktop app for NUS Cate Cafe CCA volunteers to manage information about stray cats on the NUS campus. The app is designed for users who prefer fast keyboard-based interaction, are comfortable with CLI-style workflows, and need an efficient way to identify cats and keep important status details up to date.
-<br>
-<br>
-It is intended for personal or small-team volunteer use, rather than as a veterinary medical system, shelter operations tool, or public registry.
+![banner](../docs/images/CatPals_banner.png)
 
-For the detailed documentation of this project, see the **[Cat Pals Website](https://ay2526s2-cs2103t-t16-3.github.io/tp/)**.
-
+# Table of Contents
 <!-- TOC -->
+* [Table of Contents](#table-of-contents)
+  * [About CatPals](#about-catpals)
+    * [What is CatPals?](#what-is-catpals)
+    * [What is the background of this project?](#what-is-the-background-of-this-project)
+    * [Why is this app needed?](#why-is-this-app-needed)
+    * [Who are the target users?](#who-are-the-target-users)
+    * [How do users interact with CatPals?](#how-do-users-interact-with-catpals)
+    * [What value does CatPals provide?](#what-value-does-catpals-provide)
+    * [What is CatPals not designed for?](#what-is-catpals-not-designed-for)
+    * [Where can you find more information?](#where-can-you-find-more-information)
   * [Getting Started](#getting-started)
   * [Features](#features)
     * [Viewing help : `help`](#viewing-help--help)
@@ -37,8 +36,76 @@ For the detailed documentation of this project, see the **[Cat Pals Website](htt
 
 ---
 
+## About CatPals
+
+### What is CatPals?
+
+CatPals is a **desktop application** created for **NUS Cat Café volunteers** who need a fast and reliable way to manage information about stray cats on the NUS campus.
+
+Instead of managing people’s contact details, CatPals helps volunteers record, search for, and update important information about stray cats around campus. This makes it easier to identify individual cats, track their status, and keep records accurate over time.
+
+### What is the background of this project?
+
+CatPals was not built entirely from scratch. Instead, our team started from an existing sample application and adapted it for a new purpose. In software engineering, this is called a **brownfield project**. This simply means that we improved and repurposed an existing app instead of creating a completely new one from zero.
+
+Our team of five used [**AddressBook Level 3 (AB3)**](https://se-education.org/addressbook-level3/) as the starting point for this project. AB3 is a sample desktop application provided by the CS2103T teaching team in AY2526 Semester 2. It gave us a base structure that we could build on, and we then redesigned it to better suit the needs of NUS Cat Café volunteers.
+
+### Why is this app needed?
+
+CatPals is designed for volunteers who may need to manage information for a **large number of cats** across different parts of the NUS campus. When there are many cats to keep track of, it becomes difficult to rely only on memory, scattered notes, or chat messages.
+
+A centralised app helps volunteers work in a more organised and consistent way. It can reduce confusion, make records easier to update, and support smoother coordination, especially when multiple volunteers are caring for or monitoring the same cats.
+
+### Who are the target users?
+
+CatPals is especially suitable for users who:
+
+- are members of **NUS Cat Café CCA**
+- need to keep track of a significant number of stray cats on the NUS campus
+- prefer using a **desktop app** rather than mobile apps or paper notes
+- can type reasonably quickly
+- prefer typing over repeated mouse clicking
+- are comfortable with simple command-based interaction
+
+In general, CatPals is intended for users who value **speed, efficiency, and organisation**. It is especially useful for volunteers who want quick access to cat records and a reliable way to keep key details up to date.
+
+### How do users interact with CatPals?
+
+CatPals is built around a **CLI-style workflow**. **CLI** stands for **Command Line Interface**, which means users mainly interact with the app by typing commands instead of clicking through many buttons or menus.
+
+This may sound technical at first, but in practice, it simply means that common tasks can often be done **faster** once users become familiar with a few basic commands. For volunteers who are comfortable using the keyboard, this can make day-to-day work much more efficient.
+
+The app does **not** assume that users are computer experts. However, it does assume that users are reasonably comfortable following instructions, entering commands accurately, and using a desktop-based workflow.
+
+### What value does CatPals provide?
+
+CatPals provides **fast, keyboard-friendly access** to information about stray cats living on the NUS campus. This helps volunteers:
+
+- identify cats more reliably
+- keep important status details updated
+- manage records in a more organised way
+- work more efficiently during volunteer activities
+
+CatPals is designed for **personal use**. It is not meant to replace professional systems used in clinics, shelters, or public organisations.
+
+### What is CatPals not designed for?
+
+CatPals is **not** intended to be:
+
+- a veterinary medical system
+- a shelter operations platform
+- a public registry for stray cats
+
+Instead, it is a practical record-management tool built specifically for the needs of NUS Cat Café volunteers.
+
+### Where can you find more information?
+
+For more details about the project, please visit the **[CatPals Website](https://ay2526s2-cs2103t-t16-3.github.io/tp/)**.
+
+---
+
 ## Getting Started
-If you have never used a **Terminal** or **Command Prompt** before, don't worry! This guide will walk you through the process of getting the app running.
+If you are new to using desktop applications or command-line interfaces, don't worry! This guide will walk you through the steps to get CatPals up and running on your computer. Just follow the instructions carefully, and you'll be managing cat profiles in no time.
 
 ---
 **Step 1: Check Your Java Version**
@@ -87,11 +154,8 @@ If the app runs successfully, you should see a window pop up with a list of cats
 Some example commands you can try:
 
    * `list` : Lists all contacts.
-
    * `add n/Bowie t/Orange l/Utown h/Vaccinated` : Adds a cat named `Bowie` to the cat notebook.
-
    * `delete 3` : Deletes the 3rd contact shown in the current list.
-
    * `clear` : Deletes all contacts.
    * `exit` : Exits the app. 
 Refer to the [Features](#features) below for details of each command.
@@ -124,7 +188,6 @@ Shows a message explaining how to access the help page.
 
 Format: `help`
 
-
 ### Adding a cat: `add`
 
 Adds a cat profile to the cat notebook.
@@ -140,6 +203,7 @@ A cat can have up to 3 traits (no duplicates). Health status is optional and def
 * You can specify up to 3 `t/TRAIT` prefixes, but duplicate traits are not allowed.
 
 Examples:
+
 * `add n/Bowie t/Orange l/Utown h/Vaccinated`
 * `add n/Whiskers t/Fluffy t/Playful l/Science`
 
@@ -154,7 +218,7 @@ Format: `list`
 Updates an existing cat in the app.
 
 Format:`update INDEX n/NAME t/TRAIT [t/MORE_TRAITS]… l/LOCATION [h/HEALTH_STATUS]`
-or 
+or
 `update CURRENT_NAME n/NAME t/TRAIT [t/MORE_TRAITS]… l/LOCATION [h/HEALTH_STATUS]`
 
 * Updates the cat at the specified `INDEX` or `EXISTING_NAME`. The index refers to the index number shown in the displayed person list. The index **must be a positive integer** 1, 2, 3, …
@@ -173,6 +237,7 @@ The `find` command is a powerful tool to quickly filter the CatPals database. Yo
 
 Format: `find n/CAT_NAME`, `find l/LOCATION`, `find t/TRAIT`, or `find h/HEALTH_STATUS`
 
+
 **How it works:**
 * The search is case-sensitive. e.g `snowy` will **NOT** match `Snowy`
 * The order of the keywords **do not** matter. e.g. `Snowy White` will match `White Snowy`
@@ -181,6 +246,7 @@ Format: `find n/CAT_NAME`, `find l/LOCATION`, `find t/TRAIT`, or `find h/HEALTH_
 * Search terms cannot contain symbols
 
 **Examples:**
+
 
 | Category      | Prefix | Example Command | Expected Result                                |
 |---------------|--------|-----------------|------------------------------------------------|
@@ -202,8 +268,6 @@ Format: `find n/CAT_NAME`, `find l/LOCATION`, `find t/TRAIT`, or `find h/HEALTH_
 
 >[!IMPORTANT]
 > Ensure there is no space between the prefix (like n/) and your search word. For example, use n/Snowy, not n/ Snowy.
-
-
 
 ### Deleting a cat : `delete`
 
@@ -267,12 +331,14 @@ _Details coming soon ..._
 
 ## Command summary
 
-Action | Format, Examples
---------|------------------
-**Add** | `add n/NAME t/TRAIT [t/MORE_TRAITS]… l/LOCATION [h/HEALTH_STATUS]` <br> e.g., `add n/Bowie t/Orange l/Utown h/Vaccinated`
-**Clear** | `clear`
-**Delete** | `delete INDEX(or NAME)`<br> e.g., `delete 3` or `delete Brown`
-**Update** | `update INDEX(or NAME) [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]…​`<br> e.g.,`update 2 n/James Lee e/jameslee@example.com` or `update Brown n/Bigguy t/Purple`
-**Find** | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`
-**List** | `list`
-**Help** | `help`
+
+| Command                           | Format                                                                         | Examples                                    |
+| --------------------------------- | ------------------------------------------------------------------------------ | ------------------------------------------- |
+| **Add** a cat                     | `n/[NAME] t/[TRAIT]... l/[LOCATION] {h/[HEALTH_STATUS]}`                       | `add n/Bowie t/Orange l/Utown h/Vaccinated` |
+| **Delete** a cat by name or index | `delete [CAT_NAME]`or `delete [CAT_NUMBER]`                                    | `delete Snowy` or `delete 3`                |
+| **Edit** a cat by name or index   | `Update [CAT_NAME] [UPDATED_STATUS]` or `Update [CAT_NUMBER] [UPDATED_STATUS]` | `Update Snowy l/utown` or `Update 3 l/PGPR` |
+| **Find** cats | `find n/CAT_NAME` or `find l/LOCATION` or `find t/TRAIT` or `find h/HEALTH_STATUS`    | `find n/Mochi` or `find t/Striped` or `find l/COM3` or `find h/Sick` |
+| **Clear** all cats                | `clear`                                                                        | `clear`                                     |
+| **List** all cats                 | `list`                                                                         | `list`                                      |
+| **Help**                          | `help`                                                                         | `help`                                      |
+| **Exit**                          | `exit`                                                                         | `exit`                                      |
