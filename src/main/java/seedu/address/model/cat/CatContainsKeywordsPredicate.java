@@ -1,16 +1,28 @@
 package seedu.address.model.cat;
 
-import seedu.address.commons.util.StringUtil;
-
 import java.util.List;
 import java.util.function.Predicate;
 
+import seedu.address.commons.util.StringUtil;
+
+/**
+ * Tests if a cat matches search keywords by name, location, trait, and health.
+ */
 public class CatContainsKeywordsPredicate implements Predicate<Cat> {
     private final List<String> nameKeywords;
     private final List<String> locationKeywords;
     private final List<String> traitKeywords;
     private final List<String> healthKeywords;
 
+    /**
+     * Creates a predicate that matches cats against the given keyword groups.
+     * Empty keyword lists are treated as "no filter" for that category.
+     *
+     * @param nameKeywords keywords to match against a cat's name
+     * @param locationKeywords keywords to match against a cat's location
+     * @param traitKeywords keywords to match against a cat's traits
+     * @param healthKeywords keywords to match against a cat's health status
+     */
     public CatContainsKeywordsPredicate(List<String> nameKeywords, List<String> locationKeywords,
                                         List<String> traitKeywords, List<String> healthKeywords) {
         this.nameKeywords = nameKeywords;
@@ -18,6 +30,7 @@ public class CatContainsKeywordsPredicate implements Predicate<Cat> {
         this.traitKeywords = traitKeywords;
         this.healthKeywords = healthKeywords;
     }
+
 
     @Override
     public boolean test(Cat cat) {
@@ -57,6 +70,7 @@ public class CatContainsKeywordsPredicate implements Predicate<Cat> {
 
     @Override
     public int hashCode() {
-        return nameKeywords.hashCode() + locationKeywords.hashCode() + traitKeywords.hashCode() + healthKeywords.hashCode();
+        return nameKeywords.hashCode() + locationKeywords.hashCode() + traitKeywords.hashCode()
+                + healthKeywords.hashCode();
     }
 }
