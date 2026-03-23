@@ -17,8 +17,8 @@ public class AttachCommandParser implements Parser<AttachCommand> {
 
     /**
      * Parses the given {@code String} of arguments and returns an AttachCommand.
-     * @throws ParseException if the input does not conform to the expected format.
      * AI-generated.
+     * @throws ParseException if the input does not conform to the expected format.
      */
     public AttachCommand parse(String args) throws ParseException {
         String trimmed = args.trim();
