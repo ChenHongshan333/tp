@@ -60,6 +60,7 @@ Type a command in the command box and press **Enter** to execute it.
 | **Delete** a cat by name or index | `delete [CAT_NAME]` or `delete [CAT_NUMBER]`                                       | `delete Snowy` or `delete 3`                                         |
 | **Update** a cat by name or index | `update NAME/INDEX [n/NAME] [t/TRAIT] [l/LOCATION] [h/HEALTH]`                     | `update Snowy l/utown` or `update 3 l/PGPR`                          |
 | **Find** cats                     | `find n/CAT_NAME` or `find l/LOCATION` or `find t/TRAIT` or `find h/HEALTH_STATUS` | `find n/Mochi` or `find t/Striped` or `find l/COM3` or `find h/Sick` |
+| **Export** the cat list to HTML   | `export`                                                                           | `export`                                                             |
 | **Clear** all cats                | `clear`                                                                            | `clear`                                                              |
 | **List** all cats                 | `list`                                                                             | `list`                                                               |
 | **Help**                          | `help`                                                                             | `help`                                                               |
