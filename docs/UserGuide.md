@@ -5,7 +5,9 @@ title: User Guide
 ![banner](images/CatPals_banner.png)
 
 # Table of Contents
+
 <!-- TOC -->
+
 * [Table of Contents](#table-of-contents)
   * [About CatPals](#about-catpals)
     * [What is CatPals?](#what-is-catpals)
@@ -40,6 +42,7 @@ title: User Guide
   * [FAQ](#faq)
   * [Known issues](#known-issues)
   * [Command summary](#command-summary)
+
 <!-- TOC -->
 
 ---
@@ -113,9 +116,11 @@ For more details about the project, please visit the **[CatPals Website](https:/
 ---
 
 ## Getting Started
+
 If you are new to using desktop applications or command-line interfaces, don't worry! This guide will walk you through the steps to get CatPals up and running on your computer. Just follow the instructions carefully, and you'll be managing cat profiles in no time.
 
 ---
+
 **Step 1: Check Your Java Version**
 
 Before starting, your computer needs a specific version of **Java** (think of it as the engine) to run this app.
@@ -127,9 +132,10 @@ Before starting, your computer needs a specific version of **Java** (think of it
 ---
 
 **Step 2: Download the App and prepare CatPals folder**
+
 1. Download the latest `.jar` file from [here](https://github.com/AY2526S2-CS2103T-T16-3/tp/releases/tag/branch-release1.0).
-2.  **Create a new empty folder** on your Desktop or in your Documents and name it `CatPals`or any other name you prefer.
-3.  **Move** the downloaded file into this new folder.
+2. **Create a new empty folder** on your Desktop or in your Documents and name it `CatPals`or any other name you prefer.
+3. **Move** the downloaded file into this new folder.
 
 ---
 
@@ -147,6 +153,7 @@ cd path/to/CatPals
 ```
 
 Replace `path/to/CatPals` with the actual path to your folder. For example:
+
 * Windows: `cd C:\Users\YourName\Desktop\CatPals`
 * Mac/Linux: `cd ~/Desktop/CatPals`
 
@@ -168,12 +175,12 @@ If the app runs successfully, you should see a window pop up with a list of cats
 
 Some example commands you can try:
 
-   * `list` : Lists all contacts.
-   * `add n/Bowie t/Orange l/Utown h/Vaccinated` : Adds a cat named `Bowie` to the cat notebook.
-   * `delete 3` : Deletes the 3rd contact shown in the current list.
-   * `clear` : Deletes all contacts.
-   * `exit` : Exits the app. 
-Refer to the [Features](#features) below for details of each command.
+* `list` : Lists all contacts.
+* `add n/Bowie t/Orange l/Utown h/Vaccinated` : Adds a cat named `Bowie` to the cat notebook.
+* `delete 3` : Deletes the 3rd contact shown in the current list.
+* `clear` : Deletes all contacts.
+* `exit` : Exits the app.
+  Refer to the [Features](#features) below for details of each command.
 
 ---
 
@@ -189,14 +196,25 @@ When you launch CatPals, you will first see a welcome screen with the CatPals ti
 
 To enter the main app, simply press **Space**. The main window will open smoothly.
 
+<p align="center">
+  <img src="images/splash_screen.png" alt="splash_screen" width="70%">
+  <br>
+  <em>This is the splash screen of CatPals.</em>
+</p>
+
 ---
 
 ### The main window
 
-Once past the splash screen, the main window appears. It is organised into several areas:
+Once past the splash screen, the main window appears.
 
-![CatPals UI](images/Ui.png)
+<p align="center">
+  <img src="images/main_screen.png" alt="main_screen" width="70%">
+  <br>
+  <em>This is the main screen of CatPals.</em>
+</p>
 
+It is organised into several areas:
 **App header**
 The "CatPals" title displayed at the top of the window, styled in a decorative font.
 
@@ -255,6 +273,7 @@ When a confirmation dialog appears:
 * Press **Esc** to cancel without making any changes.
 
 No mouse clicks are needed. Just keep your hands on the keyboard :).
+To get a more detailed explanation, refer to [update feature](#updating-a-cat-profile--update) and [delete feature](#deleting-a-cat--delete).
 
 ---
 
@@ -280,7 +299,9 @@ No mouse clicks are needed. Just keep your hands on the keyboard :).
 
 Shows a message explaining how to access the help page.
 
-![help message](images/helpMessage.png)
+<p align="center">
+  <img src="images/helpMessage.png" alt="main_screen" width="70%">
+</p>
 
 Format: `help`
 
@@ -303,6 +324,12 @@ Examples:
 
 * `add n/Bowie t/Orange l/Utown h/Vaccinated`
 * `add n/Whiskers t/Fluffy t/Playful l/Science`
+
+<p align="center">
+  <img src="images/feature_add.png" alt="feature_add" width="70%">
+  <br>
+  <em>Running <code>add n/Whiskers t/Fluffy t/Playful l/Science</code> adds <code>Whiskers</code> to the cat list.</em>
+</p>
 
 ### Attaching a cat photo: `attach`
 
@@ -335,8 +362,9 @@ CatPals/
 
 Name the image file exactly after the cat (same capitalisation as the name in CatPals), place it in the `images/` folder, and CatPals will pick it up automatically — no command needed.
 
-| Cat name in CatPals | File to place in `images/` |
-|---------------------|---------------------------|
+
+| Cat name in CatPals | File to place in`images/`  |
+| ------------------- | -------------------------- |
 | `Bowie`             | `Bowie.png` or `bowie.png` |
 | `Snowy`             | `Snowy.jpg` or `snowy.jpg` |
 
@@ -350,14 +378,21 @@ Format: `attach INDEX IMAGE_PATH` or `attach CAT_NAME IMAGE_PATH`
 
 ```
 attach 1 images/my_cat_photo.png
-attach Bowie images/my_cat_photo.png
+attach Bowie images/m
 ```
 
 <div markdown="span" class="alert alert-warning">:exclamation: **Caution:**
 CatPals must be launched from the terminal inside your `CatPals` folder (i.e. using `java -jar catpals.jar`) for relative image paths to work correctly. Double-clicking the `.jar` file may cause images not to load.
 </div>
 
-If the image file cannot be found at the given path, the cat's card will simply show no photo — the rest of the data is unaffected.
+If the image file cannot be found at the given path, the cat's card will simply show no photo — the rest of the data is unaffected
+
+<p align="center">
+<img src="images/feature_attach.png" alt="feature_attach" width="70%">
+<br>
+<em>Running <code>attach Whiskers images/Whiskers.png</code> links a custom photo to Whisker's profile.</em>
+
+</p>
 
 ### Listing all cats: `list`
 
@@ -373,12 +408,13 @@ Updates an existing cat in the app.
 
 **Format:** `update INDEX [n/NAME] [t/TRAIT]… [l/LOCATION] [h/HEALTH_STATUS]` or `update CURRENT_NAME [n/NAME] [t/TRAIT]… [l/LOCATION] [h/HEALTH_STATUS]`
 
-| Parameter      | Prefix | Description                                                                 |
-|----------------|--------|-----------------------------------------------------------------------------|
-| Name           | n/     | Updates the cat's name                                                      |
-| Trait(s)       | t/     | Updates the cat's traits (up to 3, no duplicates). Use `t/` alone to clear all traits |
-| Location       | l/     | Updates the cat's location                                                  |
-| Health Status  | h/     | Updates the cat's health status                                              |
+
+| Parameter     | Prefix | Description                                                                          |
+| ------------- | ------ | ------------------------------------------------------------------------------------ |
+| Name          | n/     | Updates the cat's name                                                               |
+| Trait(s)      | t/     | Updates the cat's traits (up to 3, no duplicates). Use`t/` alone to clear all traits |
+| Location      | l/     | Updates the cat's location                                                           |
+| Health Status | h/     | Updates the cat's health status                                                      |
 
 * Updates the cat at the specified `INDEX` or `CURRENT_NAME`. The index refers to the index number shown in the displayed cat list. The index **must be a positive integer** 1, 2, 3, …
 * At least one field must be provided.
@@ -388,7 +424,22 @@ Updates an existing cat in the app.
 **Examples:**
 
 * `update 1 n/Brownie t/Brown` — Updates the name and trait of the 1st cat.
-* `update Bronwie n/Brownie t/Brown` — Updates the name of the cat with current name `Bronwie` to `Brownie`.
+* `update Browie n/Brownie t/Brown` — Updates the name of the cat with current name `Browie` to `Brownie`.
+
+Before any changes are applied, CatPals will show a confirmation dialog. Press **Enter** to confirm or **Esc** to cancel.
+
+<p align="center">
+  <img src="images/feature_update_prompt.png" alt="feature_update_prompt" width="70%">
+  <br>
+  <em>CatPals asks for confirmation before applying any changes.</em>
+</p>
+
+<p align="center">
+<img src="images/feature_update.png" alt="feature_update" width="70%">
+<br>
+<em>After confirming, the cat formerly named <code>Browie</code> is updated to <code>Brownie</code></em> 
+
+</p>
 
 ### Locating cats by name, location, traits or health status : `find`
 
@@ -396,8 +447,8 @@ The `find` command is a powerful tool to quickly filter the CatPals database. Yo
 
 Format: `find n/CAT_NAME`, `find l/LOCATION`, `find t/TRAIT`, or `find h/HEALTH_STATUS`
 
-
 **How it works:**
+
 * The search is case-sensitive. e.g `snowy` will **NOT** match `Snowy`
 * The order of the keywords **do not** matter. e.g. `Snowy White` will match `White Snowy`
 * Cats matching at least one keyword will be returned (i.e. `OR` search).
@@ -407,12 +458,12 @@ Format: `find n/CAT_NAME`, `find l/LOCATION`, `find t/TRAIT`, or `find h/HEALTH_
 **Examples:**
 
 
-| Category      | Prefix | Example Command | Expected Result                                |
-|---------------|--------|-----------------|------------------------------------------------|
-| Name          | n/     | find n/Snowy    | Shows cats with the word `Snowy` in their name |
-| Location      | l/     | find l/COM3     | Shows all cats that are at `COM3`              |
-| Traits        | t/     | find t/Striped  | Shows all cats that have the trait `Striped`   |
-| Health Status | h/     | find h/healthy  | Shows all cats that are tagged as `healthy`     |
+| Category      | Prefix | Example Command | Expected Result                               |
+| ------------- | ------ | --------------- | --------------------------------------------- |
+| Name          | n/     | find n/Snowy    | Shows cats with the word`Snowy` in their name |
+| Location      | l/     | find l/COM3     | Shows all cats that are at`COM3`              |
+| Traits        | t/     | find t/Striped  | Shows all cats that have the trait`Striped`   |
+| Health Status | h/     | find h/healthy  | Shows all cats that are tagged as`healthy`    |
 
 **Advanced Examples:**
 
@@ -423,13 +474,18 @@ Format: `find n/CAT_NAME`, `find l/LOCATION`, `find t/TRAIT`, or `find h/HEALTH_
 * **Combining categories:** `find l/COM3 t/Fluffy`
   Matches any cat that is in COM3 AND is tagged as Fluffy.
 
-
 <div markdown="block" class="alert alert-warning">
-:exclamation: 
+:exclamation:
 **Caution**:
-Ensure there is an identifier flag before each keyword if multiple are used. For example, use t/friendly t/white, 
+Ensure there is an identifier flag before each keyword if multiple are used. For example, use t/friendly t/white,
 not t/friendly white.
-</div>  
+</div>
+
+<p align="center">
+  <img src="images/feature_find.png" alt="feature_find" width="70%">
+  <br>
+  <em>Running <code>find n/happy</code> shows cats named <code>happy</code>.</em>
+</p>
 
 ### Deleting a cat : `delete`
 
@@ -447,6 +503,20 @@ Examples:
 * `find Betsy` followed by `delete 1` deletes the 1st cat in the results of the `find` command.
 * `delete Brownie` deletes the cat with the specific name "Brownie".
 
+Before the cat is removed, CatPals will show a confirmation dialog. Press **Enter** to confirm or **Esc** to cancel.
+
+<p align="center">
+  <img src="images/feature_delete_prompt.png" alt="feature_delete_prompt" width="70%">
+  <br>
+  <em>CatPals asks for confirmation before deleting the cat.</em>
+</p>
+
+<p align="center">
+  <img src="images/feature_delete.png" alt="feature_delete" width="70%">
+  <br>
+  <em>After confirming, <code>Brownie</code> is removed from the list.</em>
+</p>
+
 ### Exporting the cat list : `export`
 
 Exports the currently displayed cat list to `export.html` in your CatPals folder. Open it in any browser to view a formatted list with cat photos.
@@ -462,12 +532,31 @@ Examples:
 * `list` followed by `export` — exports all cats.
 * `find l/Utown` followed by `export` — exports only cats located at Utown.
 
+<p align="center">
+  <img src="images/feature_export.png" alt="feature_export" width="70%">
+  <br>
+  <em>Running <code>export</code> saves a list of cats to <code>export.html</code>.</em>
+</p>
+
 ### Clearing all entries : `clear`
 
 Clears all entries from the app.
 
 Format: `clear`
 
+Because this action permanently removes all your cat data, CatPals will show a confirmation dialog before proceeding. Press **Enter** to confirm or **Esc** to cancel.
+
+<p align="center">
+  <img src="images/feature_clear_propmt.png" alt="feature_clear_prompt" width="70%">
+  <br>
+  <em>CatPals asks for confirmation before clearing all entries.</em>
+</p>
+
+<p align="center">
+  <img src="images/feature_clear.png" alt="feature_clear" width="70%">
+  <br>
+  <em>After confirming, all cat entries are removed and the list is empty.</em>
+</p>
 
 ### Undo the previous action : `undo`
 
@@ -477,20 +566,21 @@ Format: `undo`
 
 * The effect of `undo` varies depending on the most recently executed command:
 
-  | Recent Command                                                          | Effect of `undo`                                                                                           |
-  |-------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------|
-  | [`help`](#viewing-help--help)                                           | No action is reversed. `help` does not modify any data.                                                    |
+
+  | Recent Command                                                          | Effect of`undo`                                                                                            |
+  | ----------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+  | [`help`](#viewing-help--help)                                           | No action is reversed.`help` does not modify any data.                                                     |
   | [`add`](#adding-a-cat-add)                                              | Removes the cat that was most recently added to the cat list.                                              |
   | [`attach`](#attaching-a-cat-photo-attach)                               | Detaches the photo that was most recently attached to the cat entry and delete the photo in the directory. |
-  | [`list`](#listing-all-cats-list)                                        | No action is reversed. `list` does not modify any data.                                                    |
+  | [`list`](#listing-all-cats-list)                                        | No action is reversed.`list` does not modify any data.                                                     |
   | [`update`](#updating-a-cat-profile--update)                             | Reverts the most recently updated cat entry to its previous details.                                       |
-  | [`find`](#locating-cats-by-name-location-traits-or-health-status--find) | No action is reversed. `find` does not modify any data.                                                    |
+  | [`find`](#locating-cats-by-name-location-traits-or-health-status--find) | No action is reversed.`find` does not modify any data.                                                     |
   | [`delete`](#deleting-a-cat--delete)                                     | Restores the most recently deleted cat entry back to the cat list.                                         |
-  | [`export`](#exporting-the-cat-list--export)                             | No action is reversed. `export` is a system-level command.                                                 |
-  | [`clear`](#clearing-all-entries--clear)                                 | No action is reversed. `clear` is a system-level command.                                                  |
-  | [`undo`](#undo-the-previous-action--undo)                               | Nothing happens. `undo` cannot be applied consecutively.                                                   |
+  | [`export`](#exporting-the-cat-list--export)                             | No action is reversed.`export` is a system-level command.                                                  |
+  | [`clear`](#clearing-all-entries--clear)                                 | No action is reversed.`clear` is a system-level command.                                                   |
+  | [`undo`](#undo-the-previous-action--undo)                               | Nothing happens.`undo` cannot be applied consecutively.                                                    |
 
->You can navigate to a feature's introduction by clicking its corresponding command snippet
+> You can navigate to a feature's introduction by clicking its corresponding command snippet
 
 * `undo` can only reverse the most recently executed command. It cannot be applied consecutively to step back through multiple actions.
 * `undo` only applies to commands that modify a single entry within the app, specifically `add`, `delete`, `attach`, and `update`.
@@ -542,7 +632,7 @@ _Details coming soon ..._
 
 
 | Command                           | Format                                                                             | Examples                                                             |
-|-----------------------------------|------------------------------------------------------------------------------------|----------------------------------------------------------------------|
+| --------------------------------- | ---------------------------------------------------------------------------------- | -------------------------------------------------------------------- |
 | **Add** a cat                     | `add n/NAME t/TRAIT... l/LOCATION [h/HEALTH_STATUS]`                               | `add n/Bowie t/Orange l/Utown h/Vaccinated`                          |
 | **Attach** a photo to a cat       | `attach INDEX IMAGE_PATH` or `attach CAT_NAME IMAGE_PATH`                          | `attach 1 images/bowie.png` or `attach Bowie images/bowie.png`       |
 | **Delete** a cat by name or index | `delete [CAT_NAME]` or `delete [CAT_NUMBER]`                                       | `delete Snowy` or `delete 3`                                         |

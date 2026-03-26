@@ -13,9 +13,9 @@
 <StackPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
            styleClass="detail-panel-root">
 
-  <!-- Shown when no cat is selected -->
+  <!-- Shown when no cat is selected or list is empty -->
   <Label fx:id="noSelectionLabel"
-         text="~ select a cat to view details ~"
+         text="~ no cats to display ~"
          styleClass="detail-placeholder" />
 
   <!-- Full detail content, hidden initially -->

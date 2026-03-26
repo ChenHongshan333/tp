@@ -116,7 +116,8 @@ public class MainWindow extends UiPart<Stage> {
         catDetailPanelPlaceholder.getChildren().add(catDetailPanel.getRoot());
 
         catListPanel = new CatListPanel(logic.getFilteredCatList(),
-                cat -> catDetailPanel.displayCat(cat));
+                cat -> catDetailPanel.displayCat(cat),
+                catDetailPanel::clearDisplay);
         catListPanelPlaceholder.getChildren().add(catListPanel.getRoot());
 
         resultDisplay = new ResultDisplay();
@@ -368,6 +369,8 @@ public class MainWindow extends UiPart<Stage> {
         alert.setTitle("Confirm Clear");
         alert.setHeaderText(null);
         alert.setContentText(content);
+        alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
+        alert.getDialogPane().setMinWidth(420);
         alert.getDialogPane().getStylesheets().add("view/DarkTheme.css");
 
         // Hide OK and Cancel buttons - user presses Enter/Esc instead
