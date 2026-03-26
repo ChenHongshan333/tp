@@ -65,7 +65,7 @@ Lots of cats spread across campus means details get lost in messages and memory.
 
 ### How do users interact with CatPals?
 
-Type commands in the **command box** at the bottom (e.g. `add`, `find`, `update`). The **list** on the left and **detail** panel on the right update as you work. Use **↑ / ↓** to change the selected cat. When the app opens, the **splash screen** asks you to press **Space** to enter.
+Type commands in the **command box** at the top(e.g. `add`, `find`, `update`). The **list** on the left and **detail** panel on the right update as you work. Use **↑ / ↓** to change the selected cat. When the app opens, the **splash screen** asks you to press **Space** to enter.
 
 ### What value does CatPals provide?
 
