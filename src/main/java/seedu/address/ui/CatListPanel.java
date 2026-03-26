@@ -27,7 +27,7 @@ public class CatListPanel extends UiPart<Region> {
      * Creates a {@code CatListPanel} with no selection callback.
      */
     public CatListPanel(ObservableList<Cat> catList) {
-        this(catList, cat -> { });
+        this(catList, cat -> { }, () -> { });
     }
 
     /**
@@ -35,6 +35,14 @@ public class CatListPanel extends UiPart<Region> {
      * the user selects a different cat.
      */
     public CatListPanel(ObservableList<Cat> catList, Consumer<Cat> onCatSelected) {
+        this(catList, onCatSelected, () -> { });
+    }
+
+    /**
+     * Creates a {@code CatListPanel} that fires {@code onCatSelected} when a cat is selected
+     * and {@code onListEmpty} when the list becomes empty.
+     */
+    public CatListPanel(ObservableList<Cat> catList, Consumer<Cat> onCatSelected, Runnable onListEmpty) {
         super(FXML);
         catListView.setItems(catList);
         catListView.setCellFactory(listView -> new CatListViewCell());
@@ -54,9 +62,12 @@ public class CatListPanel extends UiPart<Region> {
             Platform.runLater(() -> catListView.getSelectionModel().selectFirst());
         }
 
-        // Re-select first item if selection is lost after a list change (e.g. find/filter)
+        // Re-select first item if selection is lost after a list change (e.g. find/filter);
+        // clear the detail panel when the list becomes empty.
         catList.addListener((javafx.collections.ListChangeListener<Cat>) change -> {
-            if (!catList.isEmpty() && catListView.getSelectionModel().getSelectedItem() == null) {
+            if (catList.isEmpty()) {
+                onListEmpty.run();
+            } else if (catListView.getSelectionModel().getSelectedItem() == null) {
                 catListView.getSelectionModel().selectFirst();
             }
         });
