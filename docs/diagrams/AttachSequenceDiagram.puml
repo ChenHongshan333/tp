@@ -1,0 +1,94 @@
+@startuml
+!include style.puml
+skinparam ArrowFontStyle plain
+
+box Logic LOGIC_COLOR_T1
+participant ":LogicManager" as LogicManager LOGIC_COLOR
+participant ":AddressBookParser" as AddressBookParser LOGIC_COLOR
+participant ":AttachCommandParser" as AttachCommandParser LOGIC_COLOR
+participant "a:AttachCommand" as AttachCommand LOGIC_COLOR
+participant "r:CommandResult" as CommandResult LOGIC_COLOR
+end box
+
+box Model MODEL_COLOR_T1
+participant "m:Model" as Model MODEL_COLOR
+end box
+
+[-> LogicManager : execute("attach 1 images/bowie.png")
+activate LogicManager
+
+LogicManager -> AddressBookParser : parseCommand("attach 1 images/bowie.png")
+activate AddressBookParser
+
+create AttachCommandParser
+AddressBookParser -> AttachCommandParser
+activate AttachCommandParser
+
+AttachCommandParser --> AddressBookParser
+deactivate AttachCommandParser
+
+AddressBookParser -> AttachCommandParser : parse("1 images/bowie.png")
+activate AttachCommandParser
+
+create AttachCommand
+AttachCommandParser -> AttachCommand
+activate AttachCommand
+
+AttachCommand --> AttachCommandParser :
+deactivate AttachCommand
+
+AttachCommandParser --> AddressBookParser : a
+deactivate AttachCommandParser
+'Hidden arrow to position the destroy marker below the end of the activation bar.
+AttachCommandParser -[hidden]-> AddressBookParser
+destroy AttachCommandParser
+
+AddressBookParser --> LogicManager : a
+deactivate AddressBookParser
+
+LogicManager -> AttachCommand : execute(m)
+activate AttachCommand
+
+note right of AttachCommand : Check if image file exists.\nThrow CommandException if not found.
+
+alt index != null
+
+    AttachCommand -> Model : getFilteredCatList()
+    activate Model
+
+    Model --> AttachCommand : lastShownList
+    deactivate Model
+
+    note right of AttachCommand : Get cat from lastShownList\nby index. Throw\nCommandException if\nindex out of bounds.
+
+else targetName != null
+
+    AttachCommand -> Model : getAddressBook()
+    activate Model
+
+    Model --> AttachCommand : addressBook
+    deactivate Model
+
+    note right of AttachCommand : Search cat by name in\naddressBook.getCatList().\nThrow CommandException\nif not found.
+
+end
+
+AttachCommand -> Model : setCat(catToEdit, updatedCat)
+activate Model
+
+Model --> AttachCommand
+deactivate Model
+
+create CommandResult
+AttachCommand -> CommandResult
+activate CommandResult
+
+CommandResult --> AttachCommand
+deactivate CommandResult
+
+AttachCommand --> LogicManager : r
+deactivate AttachCommand
+
+[<--LogicManager
+deactivate LogicManager
+@enduml
