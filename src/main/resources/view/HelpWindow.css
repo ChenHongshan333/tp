@@ -30,3 +30,8 @@
     -fx-background-color: #0081a7;
     -fx-text-fill: #fdfcdc;
 }
+
+#copyButton.copied {
+    -fx-background-color: #0081a7;
+    -fx-text-fill: #fdfcdc;
+}
