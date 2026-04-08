@@ -190,7 +190,8 @@ public class AttachCommandTest {
         // different index -> false
         assertFalse(attachFirst.equals(attachSecond));
 
-        // index-based vs name-based -> false
+        // index-based vs name-based -> false even if they resolve to the same cat,
+        // because one has index=1/name=null and the other has index=null/name="Bowie"
         assertFalse(attachFirst.equals(attachByName));
 
         // different type -> false
