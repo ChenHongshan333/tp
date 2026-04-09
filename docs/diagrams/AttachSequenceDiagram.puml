@@ -30,6 +30,8 @@ deactivate AttachCommandParser
 AddressBookParser -> AttachCommandParser : parse("1 images/bowie.png")
 activate AttachCommandParser
 
+note right of AttachCommandParser : Split on last space.\nIf last token is "--reset",\ncreate reset AttachCommand.\nOtherwise parse as image path.
+
 create AttachCommand
 AttachCommandParser -> AttachCommand
 activate AttachCommand
@@ -49,7 +51,11 @@ deactivate AddressBookParser
 LogicManager -> AttachCommand : execute(m)
 activate AttachCommand
 
-note right of AttachCommand : Check if image file exists.\nThrow CommandException if not found.
+alt reset == false
+    note right of AttachCommand : Check if image file exists.\nThrow CommandException if not found.
+else reset == true
+    note right of AttachCommand : Skip file check.\nNew image will be empty CatImage\n(triggers auto-detection).
+end
 
 alt index != null
 
