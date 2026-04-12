@@ -317,7 +317,7 @@ The path you type is stored exactly as-is. CatPals does not modify or normalise 
 CatPals must be launched from the command window inside your `CatPals` folder (i.e. using `java -jar catpals.jar`) for relative image paths to work correctly. Double-clicking the `.jar` file may cause images not to load.
 </div>
 
-If the image file cannot be found at the given path, the cat's card will simply show no photo, while the rest of the data is unaffected.
+If the image file cannot be found at the given path, or the image file does not have the correct format, the attach command will fail fast with an error message.
 
 **Resetting to auto-detection**
 
