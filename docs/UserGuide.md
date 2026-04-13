@@ -232,7 +232,7 @@ To attach a photo after adding, use the `attach` command.
 
 <div markdown="span" class="alert alert-warning">:exclamation: **Caution: Input trimming and character limits**
 All input fields (name, trait, location, health status) are automatically trimmed before being stored — leading/trailing spaces are removed and consecutive spaces within a value are collapsed into a single space. Character limits are counted **after** this trimming (i.e., based on the cleaned-up value that is actually stored). This applies to all commands that accept these fields (e.g., `add`, `update`).<br>
-For example: `t/long    tail` is stored as `t/long tail` (9 characters, not 13). So `t/long tail` and `t/long    tail` are treated as the **same** trait. Similarly, `l/Utown Residence` and `l/Utown    Residence` refer to the **same** location. However, `l/Utown Residence` and `l/U town Residence` are **different** because the words themselves differ.
+For example: `t/long    tail` is stored as `t/long tail` (9 characters, not 13). So `t/long tail` and `t/long    tail` are treated as the **same** trait. Similarly, `l/Utown Residence` and `l/Utown  Residence` refer to the **same** location. However, `l/Utown Residence` and `l/U town Residence` are **different** because the words themselves differ.
 </div>
 
 * `n/NAME`, `t/TRAIT`, and `l/LOCATION` are required.
@@ -432,7 +432,7 @@ Format: `find n/CAT_NAME`, `find l/LOCATION`, `find t/TRAIT`, or `find h/HEALTH_
 * The order of the keywords does not matter. For example, both `find t/friendly l/COM3` and `find l/COM3 t/friendly` are accepted.
 * Cats matching all keywords will be returned.
   * e.g. `find l/COM3 t/friendly` will return all cats that are at `COM3` **and** have the trait `friendly`.
-* Search terms cannot contain symbols.
+* Names can only contain **letters, numbers, and spaces** — symbols such as apostrophes (`'`), hyphens (`-`), and slashes (`/`) are not allowed. Maximum **30** characters (counted after trimming).
 
 **Examples:**
 
