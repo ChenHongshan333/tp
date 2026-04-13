@@ -269,7 +269,7 @@ CatPals/
 
 **Naming your image files**
 
-* Use simple filenames with no spaces, e.g. prefer `snowy_cat.jpg` over `snowy cat.jpg`.
+* Use simple filenames with **no spaces**, e.g. prefer `snowy_cat.jpg` over `snowy cat.jpg`.
 * Supported formats: `.png`, `.jpg`, `.jpeg`.
 * **Case sensitivity depends on your operating system.** Linux and macOS treat `Bowie.png` and `bowie.png` as different files; Windows does not. To avoid surprises, always match capitalisation exactly.
 
