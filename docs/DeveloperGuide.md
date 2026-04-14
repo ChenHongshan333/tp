@@ -380,23 +380,13 @@ The `clear` command works as follows:
 
 ### List feature
 
-The `list` command shows all cats in the address book. It is implemented via `ListCommand`, which extends `Command`, and requires no dedicated parser class.
-
-Unlike most no-argument commands, `list` rejects extra parameters instead of silently ignoring them. The check is performed in `AddressBookParser`: if the `arguments` string (everything after the command word) is non-empty after trimming, a `ParseException` is thrown with `ListCommand.MESSAGE_EXTRA_ARGS`, which reads:
-
-```
-list does not take extra parameters.
-Did you just mean: list
-```
+The `list` command shows all cats in the address book. It is implemented via `ListCommand`, which extends `Command`, and requires no dedicated parser class. Like `help`, `exit`, and `clear`, extra parameters are silently ignored — `AddressBookParser` instantiates `ListCommand` directly regardless of any trailing arguments.
 
 **Implementation flow:**
 
-1. User types e.g. `list foo` and presses Enter.
-2. `AddressBookParser#parseCommand()` splits the input into `commandWord = "list"` and `arguments = " foo"`.
-3. `arguments.trim()` is non-empty, so a `ParseException` is thrown with `ListCommand.MESSAGE_EXTRA_ARGS`.
-4. The error message is displayed to the user; no state change occurs.
-
-If the user types exactly `list` (no arguments), `arguments` is an empty string, the check passes, and `ListCommand` is returned and executed normally.
+1. User types e.g. `list` (or `list foo`) and presses Enter.
+2. `AddressBookParser#parseCommand()` matches the command word `"list"` and returns a new `ListCommand`.
+3. `ListCommand#execute()` calls `Model#updateFilteredCatList(PREDICATE_SHOW_ALL_CATS)` and returns a success result.
 
 ### Help feature
 
