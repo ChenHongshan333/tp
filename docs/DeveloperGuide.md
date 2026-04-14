@@ -25,8 +25,8 @@ title: Developer Guide
     * [Help feature](#help-feature)
     * [Exit feature](#exit-feature)
     * [Undo feature](#undo-feature)
-      * [Design considerations:](#design-considerations)
-    * [\[Proposed\] Data archiving](#proposed-data-archiving)
+      * [Undo state behaviour summary](#undo-state-behaviour-summary)
+      * [Design considerations](#design-considerations)
   * [**Documentation, logging, testing, configuration, dev-ops**](#documentation-logging-testing-configuration-dev-ops)
   * [**Appendix: Requirements**](#appendix-requirements)
     * [Product scope](#product-scope)
@@ -501,10 +501,6 @@ Step 6. The user executes `clear`. Since `clear` is a destructive non-reversible
 
   * Pros: Will use less memory (e.g. for `delete`, just save the cat being deleted). Could support multi-level undo.
   * Cons: We must ensure that the implementation of each individual command is correct.
-
-### \[Proposed\] Data archiving
-
-_{Explain here how the data archiving feature will be implemented}_
 
 ---
 
