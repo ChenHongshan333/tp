@@ -225,22 +225,32 @@ Adds a cat profile to the cat notebook.
 
 Format: `add n/NAME t/TRAIT [t/MORE_TRAITS]… l/LOCATION [h/HEALTH_STATUS]`
 
-<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
+<div markdown="block" class="alert alert-primary">
+
+:bulb: **Tip:**
 A cat can have up to 3 traits. Duplicate traits are not allowed. Health status is optional and defaults to `Unknown` if not provided.
 To attach a photo after adding, use the `attach` command.
+
 </div>
 
-<div markdown="span" class="alert alert-warning">:exclamation: **Caution: Input trimming and character limits**
+<div markdown="block" class="alert alert-warning">
+
+:exclamation: **Caution: Input trimming and character limits**
 All input fields (name, trait, location, health status) are automatically trimmed before being stored — leading/trailing spaces are removed and consecutive spaces within a value are collapsed into a single space. Character limits are counted **after** this trimming (i.e., based on the cleaned-up value that is actually stored). This applies to all commands that accept these fields (e.g., `add`, `update`).<br>
 For example: <code>t/long&nbsp;&nbsp;&nbsp;&nbsp;tail</code> is stored as `t/long tail` (9 characters, not 13). So `t/long tail` and <code>t/long&nbsp;&nbsp;&nbsp;&nbsp;tail</code> are treated as the **same** trait. Similarly, `l/Utown Residence` and <code>l/Utown&nbsp;&nbsp;&nbsp;&nbsp;Residence</code> refer to the **same** location. However, `l/Utown Residence` and `l/U town Residence` are **different** because the words themselves differ.
+
 </div>
 
 * `n/NAME`, `t/TRAIT`, and `l/LOCATION` are required.
 * `NAME` must contain at least one letter. It can be a mix of letters and numbers (e.g. `R2D2`), but it **cannot be only numbers** (e.g. `123`), because number-only names are ambiguous with index-based commands like `update` and `delete`. Names can only contain **letters, numbers, and spaces** — symbols such as apostrophes (`'`), hyphens (`-`), and slashes (`/`) are not allowed. If a cat's name contains these characters, please omit them (e.g., use `OMalley` instead of `O'Malley`, `Xiao Bai` instead of `Xiao-Bai`, `SO Sujith` instead of `S/O Sujith`). Maximum **30** characters (counted after trimming).
 
-<div markdown="span" class="alert alert-warning">:exclamation: **Caution:**
+<div markdown="block" class="alert alert-warning">
+
+:exclamation: **Caution:**
 Additionally, if a name contains a word starting with `n/`, `t/`, `l/`, or `h/`, the command will be parsed incorrectly as these are reserved command prefixes. For example, `add n/Kitty t/friendly l/Home` would work, but `add n/Kitty t/friendly t/lover l/Home` is fine too — however, a name like `Tommy t/he Cat` would cause `t/he Cat` to be misinterpreted as a trait. If a cat's name contains such a sequence, please omit the `/`.
+
 </div>
+
 * `t/TRAIT` — you can specify up to 3 traits, but duplicate traits are not allowed. Maximum **50** characters per trait (counted after trimming).
 * `l/LOCATION` — maximum **50** characters (counted after trimming).
 * `h/HEALTH_STATUS` is optional. Common values include `Vaccinated`, `Neutered`, `Vaccinated and Neutered`, `Injured`, or `Healthy`. Defaults to `Unknown` if the `h/` prefix is omitted entirely. If `h/` is provided with an empty value (e.g., `h/`), the health status will be stored as blank. Maximum **50** characters (counted after trimming).
@@ -323,8 +333,11 @@ attach Snowy White images/snowy.png
 
 The path you type is stored exactly as-is. CatPals does not modify or normalise it. Whether the file is found on each launch depends on your operating system's case sensitivity — on Linux/macOS, `images/Bowie.png` and `images/bowie.png` are different files; on Windows they are treated as the same.
 
-<div markdown="span" class="alert alert-warning">:exclamation: **Caution:**
+<div markdown="block" class="alert alert-warning">
+
+:exclamation: **Caution:**
 CatPals must be launched from the command window inside your `CatPals` folder (i.e. using `java -jar catpals.jar`) for relative image paths to work correctly. Double-clicking the `.jar` file may cause images not to load.
+
 </div>
 
 If the image file cannot be found at the given path, or the image file does not have the correct format, the attach command will fail fast with an error message.
@@ -385,14 +398,20 @@ Updates an existing cat in the app.
 * `l/LOCATION` — maximum **50** characters (counted after trimming).
 * `h/HEALTH_STATUS` — common values include `Vaccinated`, `Neutered`, `Vaccinated and Neutered`, `Injured`, or `Healthy`. Providing `h/` with an empty value (e.g., `update 1 h/`) will reset the health status to `Unknown`. Maximum **50** characters (counted after trimming).
 
-<div markdown="span" class="alert alert-warning">:exclamation: **Caution:**
+<div markdown="block" class="alert alert-warning">
+
+:exclamation: **Caution:**
 If a name contains a word starting with `n/`, `t/`, `l/`, or `h/`, the command will be parsed incorrectly as these are reserved command prefixes. For example, a name like `Tommy t/he Cat` would cause `t/he Cat` to be misinterpreted as a trait. If a cat's name contains such a sequence, please omit the `/`.
+
 </div>
 
-<div markdown="span" class="alert alert-warning">:exclamation: **Caution: Input trimming and character limits**
+<div markdown="block" class="alert alert-warning">
+
+:exclamation: **Caution: Input trimming and character limits**
 All input fields (name, trait, location, health status) are automatically trimmed before being stored — leading/trailing spaces are removed and consecutive spaces within a value are collapsed into a single space. Character limits are counted **after** this trimming (i.e., based on the cleaned-up value that is actually stored). This applies to all commands that accept these fields (e.g., `add`, `update`).<br>
 For example: <code>t/long&nbsp;&nbsp;&nbsp;&nbsp;tail</code> is stored as `t/long tail` (9 characters, not 13). So `t/long tail` and <code>t/long&nbsp;&nbsp;&nbsp;&nbsp;tail</code> are treated as the **same** trait. Similarly, `l/Utown Residence` and <code>l/Utown&nbsp;&nbsp;&nbsp;&nbsp;Residence</code> refer to the **same** location. However, `l/Utown Residence` and `l/U town Residence` are **different** because the words themselves differ.<br>
 Character limits — Name: **30**, Trait: **50**, Location: **50**, Health Status: **50**.
+
 </div>
 
 **Examples:**
@@ -447,10 +466,11 @@ Format: `find n/CAT_NAME`, `find l/LOCATION`, `find t/TRAIT`, or `find h/HEALTH_
 **More examples:** `find t/Friendly t/Playful` (either trait), `find n/Alex n/Li` (either keyword in the name field), `find l/COM3 t/Fluffy` (location **and** trait).
 
 <div markdown="block" class="alert alert-warning">
-:exclamation:
-**Caution**:
+
+:exclamation: **Caution:**
 Ensure there is an identifier flag before each keyword if multiple are used. For example, use t/friendly t/white,
 not t/friendly white.
+
 </div>
 
 <p align="center">
@@ -540,8 +560,11 @@ Reverses the most recent data-changing command, restoring the notebook to its pr
 
 Format: `undo`
 
-<div markdown="span" class="alert alert-warning">:exclamation: **Caution:**
+<div markdown="block" class="alert alert-warning">
+
+:exclamation: **Caution:**
 The `undo` command ignores any extra input after the keyword. For example, `undo 2` behaves exactly the same as `undo` — it only reverses **one** most recent data-changing command. Multi-step undo is not supported.
+
 </div>
 
 | Recent command | What `undo` does |
@@ -583,8 +606,11 @@ CatPals saves your data to disk **automatically** after any command that changes
 
 Data is stored as JSON at **`[folder containing catpals.jar]/data/addressbook.json`**. Advanced users may edit this file directly; everyone else can ignore it.
 
-<div markdown="span" class="alert alert-warning">:exclamation: **Caution:**
+<div markdown="block" class="alert alert-warning">
+
+:exclamation: **Caution:**
 Invalid JSON or unsupported values can make CatPals **drop all data** and start empty on the next launch. **Back up** `addressbook.json` before editing. Only edit the file if you know the expected format.
+
 </div>
 
 ### Archiving data files `[coming in v2.0]`
